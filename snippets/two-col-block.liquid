@@ -1,0 +1,24 @@
+{% capture two_col_block_image %}two_col_block_image.jpg{% endcapture %}
+{% capture two_col_block_image_2 %}two_col_block_image_2.jpg{% endcapture %}
+<div class="two-col-block">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="content">
+          <h5>{{ settings.two_col_block_subheading }}</h5>
+          <hr>
+          <h2>{{ settings.two_col_block_heading }}</h2>
+        </div>
+        <img src="{{ two_col_block_image | asset_img_url: '1024x' }}" alt="" />
+      </div>
+      <div class="col-sm-6">
+        <div class="content">
+          <h5>{{ settings.two_col_block_subheading_2 }}</h5>
+          <hr>
+          <h2>{{ settings.two_col_block_heading_2 }}</h2>
+        </div>
+        <img src="{{ two_col_block_image_2 | asset_img_url: '1024x' }}" alt="" />
+      </div>
+    </div>
+  </div>
+</div>

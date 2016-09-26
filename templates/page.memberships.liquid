@@ -1,0 +1,67 @@
+{% capture hero_img %}hero_memberships.jpg{% endcapture %}
+<div class="hero hero-small">
+  <div class="hero-image parallax" style="background-image: url('{{ hero_img | asset_img_url: '2048x2048' }}');">
+    <div class="hero-text {{ settings.hero_memberships_text_color }}">
+        <h3>{{ settings.hero_memberships_subheading }}</h3>
+        <hr>
+        <h1>{{ page.title }}</h1>
+        <a href="{{ settings.hero_memberships_link }}"><button type="button" class="primary-btn">{{ settings.hero_memberships_cta }}</button></a>
+    </div>
+  </div>
+</div>
+
+{% capture memberships_two_col_img1 %}memberships_two_col_image1.jpg{% endcapture %}
+<div class="two-col-img-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1 pull-right">
+        <div class="blue-block"></div>
+        <img src="{{ memberships_two_col_img1 | asset_img_url: '1200x' }}" alt="" />
+      </div>
+      <div class="col-md-5">
+        <h2>{{ settings.memberships_two_col_image_heading1 }}</h2>
+        <p>{{ settings.memberships_two_col_image_text1 }}</p>
+        <a href="{{ settings.memberships_two_col_image_link1 }}">{{ settings.memberships_two_col_image_cta1 }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% capture memberships_reviews_img %}memberships_reviews_img.jpg{% endcapture %}
+<div class="page-cutout" style="background-image: url('{{ memberships_reviews_img | asset_img_url: '2048x2048' }}');">
+  <h2>{{ settings.memberships_reviews_heading }}</h2>
+  <div class="container">
+    <div class="reviews row">
+      {% for i in (1..4) %}
+        {% capture review %}memberships_reviews_{{ i }}_enable{% endcapture %}
+        {% capture review_comment %}memberships_reviews_{{ i }}_comment{% endcapture %}
+        {% capture review_customer %}memberships_reviews_{{ i }}_customer{% endcapture %}
+        {% if settings[review] %}
+          <div class="cutout-text">
+            <div class="col-md-8 col-md-offset-2">
+              <p>{{ settings [review_comment] }}</p>
+              <p>{{ settings [review_customer] }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% capture memberships_two_col_img2 %}memberships_two_col_image2.jpg{% endcapture %}
+<div class="two-col-img-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <div class="blue-block"></div>
+        <img src="{{ memberships_two_col_img2 | asset_img_url: '1200x' }}" alt="" />
+      </div>
+      <div class="col-md-5 pull-right">
+        <h2>{{ settings.memberships_two_col_image_heading2 }}</h2>
+        <p>{{ settings.memberships_two_col_image_text2 }}</p>
+        <a href="{{ settings.memberships_two_col_image_link2 }}">{{ settings.memberships_two_col_image_cta2 }}</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{% capture two_col_img %}two_col_image.jpg{% endcapture %}
+<div class="two-col-img-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ two_col_img | asset_img_url: '1200x' }}" alt="" />
+      </div>
+      <div class="col-md-5 col-md-offset-1">
+        <h2>{{ settings.two_col_image_heading }}</h2>
+        <p>{{ settings.two_col_image_text }}</p>
+        <a href="{{ settings.two_col_image_link }}">{{ settings.two_col_image_cta }}</a>
+      </div>
+    </div>
+  </div>
+</div>

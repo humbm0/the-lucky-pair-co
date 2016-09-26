@@ -1,0 +1,39 @@
+{% capture bg_image %}home_three_col_bg_image.jpg{% endcapture %}
+
+<div class="three-col-callout" style="background-image: url('{{ bg_image | asset_img_url: '2048x2048' }}');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h2>{{ settings.home_three_col_heading }}</h2>
+        <h4>{{ settings.home_three_col_subheading }}</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>{{ settings.home_three_col_1_heading }}</h5>
+        <p>{{ settings.home_three_col_1_text }}</p>
+      </div>
+      <div class="col-md-4">
+        <h5>{{ settings.home_three_col_2_heading }}</h5>
+        <p>{{ settings.home_three_col_2_text }}</p>
+      </div>
+      <div class="col-md-4">
+        <h5>{{ settings.home_three_col_3_heading }}</h5>
+        <p>{{ settings.home_three_col_3_text }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-4">
+          <p><span class="glyphicon glyphicon-ok"></span>{{ settings.home_three_col_1_sm_text }}</p>
+        </div>
+        <div class="col-md-4">
+          <p><span class="glyphicon glyphicon-ok"></span>{{ settings.home_three_col_2_sm_text }}</p>
+        </div>
+        <div class="col-md-4">
+          <p><span class="glyphicon glyphicon-ok"></span>{{ settings.home_three_col_3_sm_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

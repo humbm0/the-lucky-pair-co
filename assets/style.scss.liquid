@@ -1,0 +1,1418 @@
+/*!normalize.css v3.0.1 | MIT License | git.io/normalize */ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}audio,canvas,progress,video{display:inline-block;vertical-align:baseline;}audio:not([controls]){display:none;height:0;}[hidden],template{display:none;}a{background:transparent;}a:active,a:hover{outline:0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}dfn{font-style:italic;}h1{font-size:2em;margin:.67em 0;}mark{background:#ff0;color:#000;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}figure{margin:1em 40px;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}pre{overflow:auto;}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em;}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0;}button{overflow:visible;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}input{line-height:normal;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em;}legend{border:0;padding:0;}textarea{overflow:auto;}optgroup{font-weight:bold;}table{border-collapse:collapse;border-spacing:0;}td,th{padding:0;}
+
+/* ==========================================================================
+   Most theme settings should be stored in Sassy CSS variables here, for reuse.
+   ========================================================================== */
+/*!theme settings */
+$site-max-width:          60 * {{ settings.base_font_size }};
+$breakpoint-small-screen: 30 * {{ settings.base_font_size }};
+$gutter:                  1 *  {{ settings.base_font_size }};
+$background-color:        {{ settings.background_color }};
+/*$text-color:              {{ settings.text_color }};*/
+$text-color:              #4D4D4D;
+$primary-color:           #C8F8F6;
+/*$link-color:              {{ settings.link_color }};*/
+$link-color:              #333C4E;
+$base-font-family:        {{ settings.base_font_family }};
+$base-font-size:          {{ settings.base_font_size }};
+$heading-font-family:     $base-font-family;
+$heading-font-weight:     600;
+
+/* Table of content */
+/* 1.  Base styles
+   2.  Forms
+   3.  Tables
+   4.  Layout
+   5.  Header
+   6.  Navigation
+   7.  Tags
+   8.  Social and payment methods
+   9.  Blog
+   10. Product and collection pages
+   11. Search form and search results
+   12. Footer
+*/
+
+/* =====================
+   1. Base styles
+   ===================== */
+
+html, body{
+  background-color: $background-color;
+  font-size: $base-font-size;
+  line-height: 1.6;
+  font-family: $base-font-family;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+  color: $text-color;
+}
+
+.paragraph-margins { margin: 0 0 .75 * $gutter; }
+.grid-margins      { margin: 0 0 $gutter;       }
+.section-margins   { margin: 0 0 2 * $gutter;   }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
+  @extend .paragraph-margins;
+}
+
+p{
+  letter-spacing: 1.5px;
+}
+button:focus{
+  outline: 0 !important;
+}
+
+/* http://modularscale.com/scale/?px1=16&px2=32&ra1=1.667&ra2=0 */
+
+.tera {
+  font-size: 5.558 * $base-font-size;
+  line-height: 1;
+}
+
+.giga {
+  font-size: 4.632 * $base-font-size;
+  line-height: 1;
+}
+
+.mega {
+  font-size: 3.334 * $base-font-size;
+  line-height: 1;
+}
+
+.alpha, h1 {
+  font-size: 2.779 * $base-font-size;
+  line-height: 1.1;
+}
+
+.beta, h2 {
+  font-size: 2 * $base-font-size;
+  line-height: 1.1;
+}
+
+.gamma, h3 {
+  font-size: 1.667 * $base-font-size;
+  line-height: 1.2;
+}
+
+.delta, h4 {
+  font-size: 1.2 * $base-font-size;
+  line-height: 1.4;
+}
+
+.epsilon, h5 {
+  font-size: 1 * $base-font-size;
+  line-height: 1.6;
+}
+
+.zeta, h6 {
+  font-size: 0.72 * $base-font-size;
+  line-height: 1.6;
+}
+
+h1{
+  font-size: 48px;
+  letter-spacing: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+h2{
+  font-size: 36px;
+  letter-spacing: 7.71px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+h3{
+  font-size: 24px;
+  letter-spacing: 7.25px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+h5{
+  font-size: 18px;
+  letter-spacing: 3.86px;
+  font-weight: 400;
+}
+a{
+  text-transform: uppercase;
+  color: $text-color;
+  border-bottom: 3px solid $primary-color;
+  font-weight: 600;
+  letter-spacing: 2.33px;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+a:hover{
+  text-decoration: none;
+  color: $primary-color;
+}
+.is-light{
+  color: #fff;
+}
+.is-dark{
+  color: $text-color;
+}
+.acent{
+  font-family: AppleMyungjo;
+  color: rgba(32,32,32,0.40);
+}
+.primary-btn{
+  margin: auto;
+  display: block;
+  background-color: $primary-color;
+  padding: 10px 60px;
+  text-transform: uppercase;
+  color: #212121;
+  font-size: 14px;
+  letter-spacing: 2.79px;
+  line-height: 33px;
+  border: none;
+  border-radius: 0;
+  transition: all 0.3s ease-out;
+  font-weight: 400;
+}
+.primary-btn:hover{
+  background-color: #A0F1EE;
+  letter-spacing: 3.7px;
+}
+.secondary-btn{
+  margin: auto;
+  display: block;
+  background: none;
+  padding: 10px 60px;
+  text-transform: uppercase;
+  color: #212121;
+  font-size: 14px;
+  letter-spacing: 2.79px;
+  line-height: 33px;
+  border: none;
+  border-radius: 0;
+  transition: all 0.3s ease-out;
+  font-weight: 400;
+}
+.secondary-btn:hover{
+  background: inherit;
+  letter-spacing: 3.7px;
+}
+
+#main{
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Styling all pages main heading in one fell swoop. */
+#main > h1, #main .title, .product-details h1 {
+  @extend .beta;
+}
+
+/* Responsive images and videos. */
+img, iframe { max-width: 100%; }
+
+.quiet { color: lighten( $text-color, 10% ); }
+.hint { color: lighten( $text-color, 15% ); }
+i, em { font-style: italic; }
+b, strong { font-weight: 600; }
+.small-print { @extend .zeta; }
+
+/*a {
+  color: $link-color;
+  text-decoration: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #DBDBDB;
+  &:hover {
+    color: #1ABC9C;
+    text-decoration: none;
+  }
+}*/
+
+section, #customer { @extend .section-margins; }
+p, form > div { @extend .paragraph-margins; }
+
+/* No list style for lists except in RTE content. */
+ul, ol {
+  list-style-type: none;
+  @extend .section-margins;
+  padding: 0;
+}
+.rte ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  @extend .paragraph-margins;
+}
+.rte ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+  @extend .paragraph-margins;
+}
+
+/* =================
+   2. Forms
+   ================= */
+
+/* Remove placeholder text in inputs when they get focus. */
+input:focus::-webkit-input-placeholder { color: transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+
+label {
+  display: block;
+}
+
+select {
+  display: inline-block;
+  margin: 0;
+  padding: .3em 2em .3em 0.6em;
+  color: $text-color;
+  border: 0;
+  border-radius: .25em;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url({{ 'arrow-down.svg' | asset_url }}) right 0.4em center no-repeat;
+  background-color: darken( $background-color, 7% );
+}
+
+@-moz-document url-prefix() {
+  /* Impossible to hide the native arrow in Firefox.
+     https://gist.github.com/joaocunha/6273016
+     Please upvote the bug: https://bugzilla.mozilla.org/show_bug.cgi?id=649849 */
+  select {
+    background-image: none;
+    padding-right: 0;
+  }
+  /* Getting rid of dotted line around text in Firefox. */
+  select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+}
+
+/* Getting rid of arrow in IE10 and IE11. */
+select::-ms-expand {
+  display: none;
+}
+
+/* Using default arrow with no box in IE8 and IE9. */
+.ie8 select, .ie9 select {
+  background: darken( $background-color, 20% ) none;
+  padding: 5px;
+  border: 1px;
+}
+
+/* Text inputs. */
+%input {
+  display: inline-block;
+  max-width: 100%;
+  padding: .4em .6em;
+  background-color: transparent;
+  border: darken( $background-color, 10% ) 1px solid;
+  border-radius: .25em;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="search"], input[type="number"], input[type="password"] {
+  @extend %input;
+}
+
+.input.small { width: 50px; }
+
+.input.medium { width: 150px; }
+
+.input.large { width: 300px; }
+
+.input.full-width { width: 100%; }
+
+textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="password"] {
+  @extend .input.large;
+  @media (max-width: $breakpoint-small-screen) {
+    width: 100%;
+  }
+}
+
+input[type="search"], #searchresults input[type="search"] {
+  @extend .input.medium;
+}
+
+input.quantity, input[type="number"] {
+  @extend .input.small;
+}
+
+/* All buttons. */
+.button {
+  display: inline-block;
+  padding: .4em .6em;
+  background-color: darken( $background-color, 10%);
+  border: darken( $background-color, 10%) 1px solid;
+  border-radius: .25em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  &:hover {
+    background-color: darken( $background-color, 20%);
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+input[type="submit"], input[type="button"], button {
+  @extend .button;
+}
+
+#searchresults input[type="submit"] { width: inherit; }
+
+/* Big, important buttons get a special treatment */
+.primary.button {
+  padding: .5em .7em;
+  font-size: 1.2rem;
+  background-color: $link-color;
+  border-color: $link-color;
+  color: $background-color;
+  &:hover {
+    background-color: darken( $link-color, 10% );
+  }
+}
+
+/* For search and newsletter forms, eliminate any spacing between the text box and submit button on the right. */
+.inline-collapse {
+  @extend .clearfix;
+  & input {
+    float: left;
+  }
+  & input:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  & input:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+/* For IE8. */
+.lt-ie9 .inline-collapse input, .lt-ie9 #searchresults .inline-collapse input { display: inline-block; zoom: 1; width: 130px; }
+.lt-ie9 .inline-collapse { display: block; width: 300px; }
+
+/* ================
+   3. Tables
+   ================ */
+
+table {
+  width: 100%;
+  @extend .section-margins;
+  th, td {
+    padding: 1em;
+  }
+  tr {
+    border-bottom: darken( $background-color, 10%) 1px solid;
+  }
+  th {
+    text-align: left;
+  }
+}
+
+/* ================
+   4. Layout
+   ================ */
+
+/* Safeguards for floats. */
+header, #main, footer {
+  @extend .clear;
+  @extend .clearfix;
+}
+
+/* Add some space below main section. */
+header, #main {
+  @extend .section-margins;
+}
+
+/* Using border-box makes it easier to work with grids:
+   See http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* The Grid. */
+.row {
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+  margin-bottom: $gutter;
+  clear: both;
+}
+.column {
+  float: left;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  padding-bottom: $gutter;
+}
+.column.full { width: 100%; }
+.column.three-quarters { width: 75%; }
+.column.two-thirds { width: 66.6%; }
+.column.half { width: 50%; }
+.column.third { width: 33.3%; }
+.column.fourth { width: 25%; }
+.column.fifth { width: 20%; }
+.column.sixth { width: 16.6%; }
+.column.flow-opposite { float: right; }
+.grid {
+  @extend .row;
+}
+.grid > li {
+  @extend .column;
+}
+.two-per-row {
+  @extend .column.half;
+}
+.three-per-row {
+  @extend .column.third;
+}
+.four-per-row {
+  @extend .column.fourth;
+}
+.five-per-row {
+  @extend .column.fifth;
+}
+.six-per-row {
+  @extend .column.sixth;
+}
+.product {
+  @extend .row;
+}
+.product-photos, .product-details {
+  @extend .column;
+  @extend .column.half;
+}
+
+@media (max-width: $breakpoint-small-screen) {
+  .column {
+    float: none;
+    width: 100% !important;
+  }
+}
+
+/* Clearfix applied to .row because row content is floated. */
+.row { @extend .clearfix; }
+
+/* Show and hide depending on screen size. */
+@media (max-width: $breakpoint-small-screen) {
+.show-on-large, .show-on-medium, .hide-on-small { display: none; }
+}
+@media (min-width: $breakpoint-small-screen) {
+.hide-on-large, .show-on-medium, .show-on-small { display: none; }
+}
+
+/* IE8 does not support media queries */
+.lt-ie9 .show-on-medium, .lt-ie9 .show-on-small { display: none; }
+
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+/* Utility classes: Hidden, float left, float right, etc. */
+.hidden { display: none; }
+.left { float: left; padding-right: $gutter; }
+.right { float: right; padding-left: $gutter; }
+.centered { text-align: center; }
+.left-aligned {
+  text-align: left;
+  @media (max-width: $breakpoint-small-screen) {
+    text-align: center;
+    margin: $gutter 0;
+  }
+}
+.right-aligned {
+  text-align: right;
+  @media (max-width: $breakpoint-small-screen) {
+    text-align: center;
+    margin: $gutter 0;
+  }
+}
+.clear { clear: both; }
+.clear-after { *zoom: 1; }
+.clear-after:after { content: ''; display: table; clear: both; }
+
+/* ==================
+   5. Header
+   ================== */
+
+#site-title {
+  display: block;
+  @extend .section-margins;
+  @extend .giga;
+  color: $text-color;
+  text-decoration: none;
+}
+
+#logo {
+  display: block;
+  margin: $gutter/2 auto;
+  img {
+    max-height: 180px;
+  }
+}
+
+
+/* =====================
+   7. Tags
+   ===================== */
+
+.tag {
+  @extend .button;
+  margin: 0 $gutter/3 $gutter/3 0;
+  padding: .2em .5em;
+  a {
+    text-decoration: none;
+    color: $text-color;
+  }
+  &.active {
+    background-color: $link-color;
+    border-color: $link-color;
+    a {
+      color: $background-color;
+    }
+  }
+}
+
+.subcategories, .blog-tags {
+  font-size: 0;
+}
+
+.subcategories > li, .blog-tags > li {
+  @extend .tag;
+  font-size: 0.85 * $base-font-size;
+}
+
+
+
+/* IE8 does not support SVG. */
+.lt-ie9 .payment-types { display:none; }
+
+/* ===========
+   9. Blog
+   =========== */
+
+/* Separating articles with a border on the blog landing page.*/
+.template-blog .article {
+  border-bottom: darken( $background-color, 5%) 0.07rem solid;
+  padding: $gutter 0;
+  &.first {
+    padding-top: 0;
+  }
+  &.last {
+    border-bottom: none;
+  }
+}
+
+/* All blog images should stretch to the full width on small screens. */
+@media (max-width: $breakpoint-small-screen) {
+  .template-article .article img {
+    display: block;
+    width: 100% !important;
+    float: none !important;
+    margin-top: $gutter/2 !important;
+    margin-bottom: $gutter/2 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both;
+    @extend .clear-after;
+  }
+}
+
+.date, .comment-date { @extend .zeta; }
+
+.meta > span + span { padding-left: $gutter/2; }
+
+/* Square element that contains the blog image, which is
+set as a centered background image. */
+.square-holder {
+  display: block;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+/* Fading out content so that the height of the article excerpt
+always matches the height of the blog image on the left. */
+.fadeout-overflow-bottom {
+  position: relative;
+  height: 0;
+  padding-bottom: 33.33%;
+  overflow: hidden;
+}
+.fadeout-overflow-bottom:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3 * $gutter;
+  background: linear-gradient(to top, rgba($background-color, 1) 0, rgba($background-color, 0) 100%);
+  pointer-events: none;
+}
+
+/* On small screens, we don't truncate content, and don't fade
+it out since the blog image is full-width, and the excerpt
+is below it. */
+@media (max-width: $breakpoint-small-screen) {
+  .fadeout-overflow-bottom {
+    height: auto;
+    padding-bottom: 0;
+  }
+  .fadeout-overflow-bottom:after {
+    background: transparent;
+  }
+}
+
+.lt-ie9 .fadeout-overflow-bottom { height: auto; padding-bottom: 0; }
+
+#comments { margin: 2 * $gutter 0; }
+
+/* ==========================================================================
+  10. Product and collection pages.
+  ========================================================================== */
+
+.product-details > div,
+.product-details > p {
+  @extend .section-margins;
+}
+
+.product-photo-container {
+  @extend .grid-margins;
+}
+
+/* Quickly hiding default variant drop-down when JavaScript is enabled */
+/* See this: http://www.learningjquery.com/2008/10/1-way-to-avoid-the-flash-of-unstyled-content/ */
+.js #product-select { display: none; }
+
+/* Product option wrapper. */
+.selector-wrapper {
+  @extend .paragraph-margins;
+}
+
+.sort-by {
+  margin-top: .25rem;
+}
+
+@media (max-width: $breakpoint-small-screen) {
+  .sort-by {
+    float: none;
+    margin-bottom: $gutter;
+  }
+}
+
+.prod-caption {
+  margin: $gutter/6 0;
+}
+
+.product-photo-thumb:nth-child(2n+1) {
+  clear: both;
+}
+
+@media (max-width: $breakpoint-small-screen) {
+  .two-per-row.product-photo-thumb {
+    width: 50% !important;
+    float: left !important;
+  }
+}
+
+/* ======================================
+   11. Search form and search results
+   ====================================== */
+
+/* Override to globally-hosted search.css on the /search page */
+#searchresults {
+  @extend .paragraph-margins;
+}
+/* Styling all search forms. You can reuse this for newsletter signup form. */
+.search-form {
+  display: inline-block;
+  margin-top: .2 * $base-font-size;
+  @extend .inline-collapse;
+}
+/* Hiding search form in header on small screens */
+@media (max-width: $breakpoint-small-screen) {
+  header .search-form {
+    display: none;
+  }
+}
+
+
+
+header {
+  width: 100%;
+  height: 135px;
+  background: none;
+  position: fixed;
+  z-index: 50;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*header::before{
+  background-color: #333C4E;
+  background-image: -webkit-linear-gradient(0deg, transparent 50%, #1ABC9C 50%);
+  background-image: -moz-linear-gradient(0deg, transparent 50%, #1ABC9C 50%);
+  background-image: -o-linear-gradient(0deg, transparent 50%, #1ABC9C 50%);
+  background-image: linear-gradient(90deg, transparent 50%, #1ABC9C 50%);
+  display: block;
+  width: 100%;
+  z-index: 100;
+  -webkit-background-size: 66.6667% 4px;
+  background-size: 66.6667% 4px;
+  content: "";
+  height: 4px;
+}*/
+
+header ul{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .nav ul div{
+  display: inline-block;
+}
+header .nav .right{
+  float: right;
+}
+header .nav .left{
+  float: left;
+}
+header .nav li{
+  display: inline-block;
+  margin: 0 15px;
+}
+header .nav li a{
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 400;
+  border: none;
+  color: #fff;
+  transition: all 0.4s ease;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+header .nav li a:hover{
+  text-decoration: none;
+}
+
+header .nav li a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: $primary-color;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+header .nav li a:hover:before, header .nav li a:focus:before, header .nav li a:active:before {
+  left: 0;
+  right: 0;
+}
+header #logo{
+  display: inline-block;
+  margin: 0 30px;
+  border: none;
+}
+header #logo img{
+  max-height: 80px;
+  transition: all 0.4s ease;
+}
+header #logo.hide{
+  display: none;
+}
+
+header.scroll{
+  background: #fff;
+  height: 80px;
+}
+header.scroll ul{
+  line-height: 80px;
+}
+header.scroll .nav li a{
+  color: $text-color;
+  padding-bottom: 0;
+}
+header.scroll #logo img{
+  max-height: 50px;
+}
+header.nav-down{
+  top: 0;
+}
+header.nav-up{
+  top: -135px;
+}
+.nav-top{
+  margin-top: 100px;
+}
+
+/* =====================
+   13. Hero
+   ===================== */
+div{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.hero .hero-image{
+  height: 100vh;
+  width: 100%;
+  display: table;
+}
+.hero-small .hero-image{
+  height: 500px;
+}
+.hero hr{
+  width: 60px;
+  border: 1px solid #fff;
+}
+.hero .hero-text.is-dark{
+  border: 1px solid $text-color;
+}
+.hero-text{
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
+  max-width: 60%;
+}
+.hero-text h1{
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.50);
+  margin-bottom: 30px;
+}
+.hero-text h3{
+  font-weight: 300;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.50);
+}
+.hero-text a{
+  font-size: 24px;
+  color: #FFFFFF;
+  letter-spacing: 7px;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+  font-weight: 300;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+}
+
+
+
+.two-col-block .row div{
+  padding: 0;
+}
+.two-col-block img{
+  z-index: 0;
+}
+.two-col-block .content{
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.two-col-block h2, .two-col-block h5{
+  text-transform: uppercase;
+}
+.two-col-block hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #212121;
+  padding: 0;
+  width: 30px;
+}
+
+.three-card-callout{
+  background-color: $primary-color;
+  padding: 80px 0;
+  text-align: center;
+}
+.three-card-callout .box{
+  max-width: 1290px;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0px 2px 44px 0px rgba(0,0,0,0.05);
+  margin: 100px auto;
+  padding: 60px 0px;
+}
+.three-card-callout .container .row div{
+  padding: 0 30px;
+}
+.three-card-callout .content{
+  padding: 10px;
+}
+.three-card-callout h2{
+  margin-bottom: 40px;
+}
+.three-card-callout img{
+  box-shadow: 0px 2px 24px 0px rgba(0,0,0,0.20);
+  margin-bottom: 15px;
+}
+.three-card-callout h3{
+  margin: 15px 0;
+}
+
+
+.news-slider{
+  margin-top: 100px;
+  margin-bottom: -120px;
+}
+.news-slider .title h2{
+}
+.news-slider .slide{
+  position: relative;
+  z-index: 2;
+  top: -230px;
+  left: 60px;
+}
+.news-slider .slide .image{
+  box-shadow: 0px 2px 35px 0px rgba(0,0,0,0.15);
+}
+.news-slider .title{
+  background-color: $primary-color;
+  padding: 60px;
+  position: relative;
+  z-index: 1;
+  height: 410px;
+}
+.news-slider .slide h3{
+  margin-bottom: 20px;
+}
+.news-slider .slide p{
+  margin-bottom: 40px
+}
+.news-slider .buttons{
+  float: right;
+  right: -20px;
+  top: -79px;
+}
+.news-slider .buttons button{
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 0 !important;
+  background-color: #fff;
+  box-shadow: 0px 2px 40px 0px rgba(0,0,0,0.10);
+}
+.chevron-left, .chevron-right{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+}
+.chevron-left{
+  background-image: url(chevron-left.png);
+}
+.chevron-right{
+  background-image: url(chevron-right.png);
+}
+
+
+.featured-products{
+  text-align: center;
+}
+.featured-products .slick-list{
+  padding-bottom: 5px;
+}
+.featured-products h2{
+  margin-bottom: 10px;
+}
+.featured-products .slider{
+  margin-top: 40px;
+}
+.featured-products p{
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.add-to-cart.btn{
+  text-transform: uppercase;
+  color: $text-color;
+  border: none;
+  border-bottom: 3px solid $primary-color;
+  font-weight: 600;
+  letter-spacing: 2.33px;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 0;
+  background: none;
+}
+.add-to-cart.btn:hover{
+  text-decoration: none;
+  color: $primary-color;
+  background: inherit;
+}
+
+.carousel.right, .carousel.left{
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 30px;
+  height: 55px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+.carousel.right{
+  right: -80px;
+  background-image: url(chevron-right-gr.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.carousel.left{
+  left: -80px;
+  background-image: url(chevron-left-gr.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+
+footer{
+  margin: 80px 0;
+  margin-bottom: 0;
+}
+footer .container{
+  padding: 40px 0;
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+  margin-bottom: 40px;
+}
+footer ul, footer .row{
+  margin: 0;
+}
+footer h4{
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2.57px;
+}
+footer a{
+  font-size: 14px;
+  text-transform: none;
+  border: none;
+  font-weight: 300;
+}
+footer li{
+  margin-bottom: 5px;
+}
+footer li:last-child{
+  margin: 0;
+}
+footer .newsletter form input{
+  display: inline-block;
+  height: 50px;
+  border-radius: 0;
+  margin: 0;
+  border: 1px solid #adb1b8;
+}
+footer .newsletter form input.btn{
+  width: 50px;
+  background-color: #adb1b8;
+  border: none;
+  vertical-align: top;
+  margin-left: -4px;
+}
+footer .newsletter form input.text{
+  width: calc(100% - 51px);
+}
+footer .social li{
+  display: inline-block;
+  padding: 5px;
+}
+footer .social img{
+  height: 35px;
+  width: auto;
+}
+
+
+.page-cutout{
+  height: 350px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  padding-top: 60px;
+  margin: 100px 0;
+}
+.page-cutout h2{
+  font-weight: 300;
+}
+.page-cutout .cutout-text{
+  margin-top: 30px;
+}
+.page-cutout .slick-dots{
+  position: relative;
+  bottom: 0;
+}
+
+
+.two-col-img-text{
+  margin: 100px 0;
+}
+.two-col-img-text img{
+  position: relative;
+  z-index: 1;
+}
+.two-col-img-text p{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.blue-block{
+  background-color: #C8F8F6;
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 50%;
+  right: -8.3333%;
+  top: -8.3333%
+}
+
+
+/*MEMBERSHIPS FORM STYLING AND ANIMATION*/
+
+.modal-header {
+  height: 45px;
+  background: white;
+  border-bottom: 1px solid #ccc;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.modal-header span {
+  display: block;
+  height: 12px;
+  width: 12px;
+  margin: 5px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+}
+.modal-header span.is-active {
+  background: rgba(0, 0, 0, 0.4);
+  background: #FF8F00;
+}
+.modal-wrap {
+  top: 0;
+  position: relative;
+  min-height: 800px;
+  margin: 50px auto;
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  transition: -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+}
+.modal-bodies {
+  position: relative;
+}
+
+.modal-body {
+  background: white;
+  padding: 40px 100px;
+  margin-bottom: 50px;
+  position: absolute;
+  top: 0;
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+.modal-body.is-showing {
+  display: block;
+}
+.modal-body input[type=radio]{
+    display:none;
+}
+.modal-body .button-group{
+  display: block;
+}
+.modal-body label.tab{
+  display: inline-block;
+  display: table-cell;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.modal-body input[type=radio]:checked + label.tab{
+  background: $primary-color;
+}
+.modal-body label.tab:hover{
+  background: $primary-color;
+}
+.modal-body .tabs{
+  border: 1px solid $primary-color;
+  display: table;
+  padding: 0;
+}
+.modal-body input[type=radio]:checked + .card-radio{
+    border: 3px solid $primary-color;
+}
+.modal-body .card-radio:hover{
+    border: 3px solid $primary-color;
+}
+.modal-body .card-radio{
+  cursor: pointer;
+}
+
+.animate-out {
+  -webkit-animation: out 600ms ease-in forwards;
+          animation: out 600ms ease-in forwards;
+}
+
+.animate-in {
+  -webkit-animation: in 500ms ease-out forwards;
+          animation: in 500ms ease-out forwards;
+  display: block;
+}
+
+/*.animate-up {
+  -webkit-transform: translateY(-500px) rotate(30deg);
+          transform: translateY(-500px) rotate(30deg);
+}*/
+
+@-webkit-keyframes out {
+  0% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+    -webkit-transform: translateX(-100vw);
+  }
+}
+
+@keyframes out {
+  0% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+    -webkit-transform: translateX(-100vw);
+  }
+}
+@-webkit-keyframes in {
+  0% {
+    transform: translateX(100vw);
+    -webkit-transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes in {
+  0% {
+    transform: translateX(100vw);
+    -webkit-transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+}
+
+.parallax{
+  position: relative;
+  z-index: 0;
+}
+
+
+.faq h3{
+  margin-top: 60px;
+  margin-bottom: 30px
+}
+.faq h4{
+  margin-top: 30px;
+}
+
+
+.product-img-wrapper{
+  height: 360px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+.product-img-wrapper img{
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
+  z-index: 0;
+}
+.product-item{
+  margin-bottom: 60px;
+}
+.quick-view{
+  background-color: rgba(200, 248, 246, 1);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: $text-color;
+}
+.product-img-wrapper:hover .quick-view{
+  opacity: 1;
+  background-color: rgba(200, 248, 246, 0.6)
+}

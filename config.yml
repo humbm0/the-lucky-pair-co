@@ -1,0 +1,6 @@
+development:
+  theme_id: live
+  password: 92db9a60051a704af3ae33e45828d708
+  store: the-lucky-pair-co.myshopify.com
+  bucket_size: 40
+  refill_rate: 2

@@ -1,0 +1,63 @@
+
+
+<!-- <div class="hero">
+  {% for i in (1..6) %}
+    {% capture slide %}hero_slide_{{ i }}_enable{% endcapture %}
+    {% capture slide_img %}hero_slide_{{ i }}.jpg{% endcapture %}
+    {% capture slide_text_color %}hero_slide_{{ i }}_text_color{% endcapture %}
+    {% capture slide_heading %}hero_slide_{{ i }}_heading{% endcapture %}
+    {% capture slide_subheading %}hero_slide_{{ i }}_subheading{% endcapture %}
+    {% capture slide_cta %}hero_slide_{{ i }}_cta{% endcapture %}
+    {% capture slide_link %}hero_slide_{{ i }}_link{% endcapture %}
+    {% if settings[slide] %}
+      <div class="hero-image" style="background-image: url('{{ slide_img | asset_img_url: '2048x2048' }}');">
+        <div class="hero-text {{ settings[slide_text_color] }}">
+            <h1>{{ settings [slide_heading] }}</h1>
+            <p>{{ settings [slide_subheading] }}</p>
+            <a href="{{ settings [slide_link] }}">{{ settings [slide_cta] }}</a>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div> -->
+
+<div class="news-slider container">
+
+    {% for i in (1..6) %}
+      {% capture slide %}news_slide_{{ i }}_enable{% endcapture %}
+      {% capture slide_img %}news_slide_{{ i }}.jpg{% endcapture %}
+      {% capture slide_heading %}news_slide_{{ i }}_heading{% endcapture %}
+      {% capture slide_text %}news_slide_{{ i }}_text{% endcapture %}
+      {% capture slide_cta %}news_slide_{{ i }}_cta{% endcapture %}
+      {% capture slide_link %}news_slide_{{ i }}_link{% endcapture %}
+      {% if settings[slide] %}
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="title">
+                <h2>{{ settings.news_slide_title }}</h2>
+                <br>
+              </div>
+            </div>
+          </div>
+          <div class="row slide">
+            <div class="col-md-5">
+              <div class="image">
+                <img src="{{ slide_img | asset_img_url: '2048x2048' }}" alt="" />
+                <div class="buttons btn-group-vertical">
+                  <button type="button" data-role="none" class="btn prev chevron-left"></button>
+                  <button type="button" data-role="none" class="btn next chevron-right"></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+              <h3>{{ settings [slide_heading] }}</h3>
+              <p>{{ settings [slide_text] }}</p>
+              <a href="{{ settings [slide_link] }}">{{ settings [slide_cta] }}</a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+</div>

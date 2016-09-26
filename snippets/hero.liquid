@@ -1,0 +1,23 @@
+
+
+<div class="hero hero-carousel">
+  {% for i in (1..6) %}
+    {% capture slide %}hero_slide_{{ i }}_enable{% endcapture %}
+    {% capture slide_img %}hero_slide_{{ i }}.jpg{% endcapture %}
+    {% capture slide_text_color %}hero_slide_{{ i }}_text_color{% endcapture %}
+    {% capture slide_heading %}hero_slide_{{ i }}_heading{% endcapture %}
+    {% capture slide_subheading %}hero_slide_{{ i }}_subheading{% endcapture %}
+    {% capture slide_cta %}hero_slide_{{ i }}_cta{% endcapture %}
+    {% capture slide_link %}hero_slide_{{ i }}_link{% endcapture %}
+    {% if settings[slide] %}
+      <div class="hero-image parallax" style="background-image: url('{{ slide_img | asset_img_url: '2048x2048' }}');">
+        <div class="hero-text {{ settings[slide_text_color] }}">
+            <h3>{{ settings [slide_subheading] }}</h3>
+            <hr>
+            <h1>{{ settings [slide_heading] }}</h1>
+            <a href="{{ settings [slide_link] }}"><button type="button" class="primary-btn">{{ settings [slide_cta] }}</button></a>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

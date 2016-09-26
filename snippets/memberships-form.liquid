@@ -1,0 +1,79 @@
+=<div class="modal-wrap">
+  <div class="modal-header"><span class="is-active"></span><span></span><span></span></div>
+  <div class="modal-bodies container">
+    <form name="membership" method="post" action="/cart/add">
+      <div class="three-card-callout modal-body modal-body-step-1 is-showing">
+        <h5>Step 1</h5>
+        <h2>Pick your plan</h2>
+        {% for product in collections.memberships.products %}
+          <input type="radio" name="id" value="{{ product.variants.first.id }}" id="{{ product.id }}"/>
+          <label class="card-radio col-sm-4" for="{{product.id}}">
+            <div class="content">
+              {% assign image = product.image %}
+              <img src="{{ product | img_url: '768x' }}" alt="{{ product.image.alt }}" />
+              <h3 class="acent price">{{ product.price | money }}</h3>
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.description }}</p>
+            </div>
+          </label>
+        {% endfor %}
+        <div class="row">
+          <button type="button" class="form-next primary-btn">Next</button>
+          <button type="button" class="secondary-btn">Cancel</button>
+        </div>
+      </div>
+      <div class="three-card-callout modal-body modal-body-step-2">
+        <h5>Step 2</h5>
+        <h2>Choose your style</h2>
+        {% for i in (1..3) %}
+          {% capture style %}memberships_style_{{ i }}_enable{% endcapture %}
+          {% capture style_img %}memberships_style_{{ i }}.jpg{% endcapture %}
+          {% capture style_heading %}memberships_style_{{ i }}_heading{% endcapture %}
+          {% capture style_text %}memberships_style_{{ i }}_text{% endcapture %}
+          {% if settings[style] %}
+            <input required type="radio" name="style" value="{{ settings [style_heading] }}" id="{{ i }}"/>
+            <label class="card-radio col-sm-4" for="{{ i }}">
+              <div class="content">
+                <img src="{{ style_img | asset_img_url: '768x' }}" alt="{{ settings [style_img_alt] }}" />
+                <h3>{{ settings [style_heading] }}</h3>
+                <p>{{ settings [style_text] }}</p>
+              </div>
+            </label>
+            {% endif %}
+          {% endfor %}
+          <div class="row">
+            <button type="button" class="form-next primary-btn">Next</button>
+            <button type="button" class="form-previous secondary-btn">Back</button>
+          </div>
+      </div>
+      <div class="three-card-callout modal-body modal-body-step-3">
+        <h5>Step 3</h5>
+        <h2>Size and confirm</h2>
+        <div class="tabs col-sm-6 col-sm-offset-3">
+          <input required type="radio" name="size" value="small" id="small">
+          <label class="tab" for="small">small</label>
+          <input required type="radio" name="size" value="small" id="medium">
+          <label class="tab" for="medium">medium</label>
+          <input required type="radio" name="size" value="small" id="large">
+          <label class="tab" for="large">large</label>
+        </div>
+        <div class="row summary">
+          <h3>You will pay</h3>
+          <h2></h2>
+        </div>
+        <div class="row">
+          <button type="submit" class="form-next primary-btn">Add to cart</button>
+          <button type="button" class="secondary-btn">Cancel</button>
+        </div>
+        <!-- <div class="text-center">
+          <div class="button">Done!</div>
+        </div> -->
+      </div>
+    </form>
+  </div>
+</div>
+<div class="text-center">
+  <div class="rerun-button">ReRun</div>
+</div>
+
+{{ 'form.js' | asset_url | script_tag }}

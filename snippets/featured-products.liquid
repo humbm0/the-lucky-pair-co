@@ -1,0 +1,26 @@
+
+
+<div class="container featured-products">
+  <h2>{{ settings.featured_products_title }}</h2>
+  <h3 class="acent">{{ collections.featured.published_at | date: "%D" }}</h3>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row slider">
+        {% for product in collections.featured.products %}
+          <div class="product-item col-md-3">
+            <form method="post" action="/cart/add">
+              <div class="product-img-wrapper">
+                <img src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+              </div>
+              <p>{{ product.title }}</p>
+              <p class="acent">{{ product.price | money  }}</p>
+              <!-- <a href="#">Add to cart</a> -->
+              <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+              <input type="submit" value="Add to cart" class="add-to-cart btn" />
+            </form>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

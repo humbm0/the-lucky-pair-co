@@ -1,0 +1,38 @@
+{% capture card_image %}home_three_card_image.jpg{% endcapture %}
+{% capture card_image_2 %}home_three_card_image_2.jpg{% endcapture %}
+{% capture card_image_3 %}home_three_card_image_3.jpg{% endcapture %}
+
+<div class="three-card-callout">
+  <div class="box">
+    <div class="container">
+      <h2>{{ settings.home_three_card_title }}</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="{{ card_image | asset_img_url: '300x300' }}" alt="" />
+          <div class="content">
+            <h3 class="acent">1</h3>
+            <h3>{{ settings.home_three_card_heading }}</h3>
+            <p>{{ settings.home_three_card_text }}</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="{{ card_image_2 | asset_img_url: '300x300' }}" alt="" />
+          <div class="content">
+            <h3 class="acent">2</h3>
+            <h3>{{ settings.home_three_card_heading_2 }}</h3>
+            <p>{{ settings.home_three_card_text_2 }}</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="{{ card_image_3 | asset_img_url: '300x300' }}" alt="" />
+          <div class="content">
+            <h3 class="acent">3</h3>
+            <h3>{{ settings.home_three_card_heading_3 }}</h3>
+            <p>{{ settings.home_three_card_text_3 }}</p>
+          </div>
+        </div>
+      </div>
+      <a href="#"><button type="button" class="primary-btn">{{ settings.home_three_card_button }}</button></a>
+    </div>
+  </div>
+</div>
